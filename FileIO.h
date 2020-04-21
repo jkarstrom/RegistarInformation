@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 //Joan Karstrom, Jennifer Nguyen
 //ID: 2318286, 2320560
 //karstrom@chapman.edu, jenguyen@chapman.edu
@@ -7,22 +8,19 @@
 
 using namespace std;
 
-class Student
+class FileIO
 {
 public:
-  Student();//default constructor
-  Student(int winT, int waitT);//overload constructor
-  ~Student();//deconstructor
+
+  FileIO();//default constructor
+  ~FileIO();//deconstructor
 
   //core functions
-  bool isServed();
+  void openFile(string f);
 
   //aux functions
-  int getWindowTime();
 
 private:
   //vars
-  int windowTime;
-  int waitTime;
-  bool serviced;
+  string line;
 };
