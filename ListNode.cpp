@@ -1,3 +1,5 @@
+#include "ListNode.h"
+
 ListNode::ListNode(){
     data = 0;
     prev = NULL;

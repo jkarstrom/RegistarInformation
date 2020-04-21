@@ -1,29 +1,34 @@
-#include "DoublyLinkedList.h"
 //Joan Karstrom, Jennifer Nguyen
 //ID: 2318286, 2320560
 //karstrom@chapman.edu, jenguyen@chapman.edu
 //CPSC: 350 - 2
 //Assignment 4: Registar
 
+#include "DoublyLinkedList.h"
+
 template<class T>
 
-class GenQuene{
+class GenQueue{
 public:
-    GenQuene();//default constructor
-    ~GenQuene();//deconstructor
+    GenQueue();//default constructor
+    GenQueue(int maxSize); //overloaded constructor
+    ~GenQueue();//deconstructor
 
     //core functions
-    insert(object);
-    void remove(object) throw(QueueEmpty);
-    T front() throw(QueueEmpty);
+    void insert(T object);
+    T remove(T object); //throw(QueueEmpty);
+    T front(); //throw(QueueEmpty);
 
     //aux functions
-    int size();
+    int getSize();
     bool isEmpty();
+    bool isFull();
 
 private:
     //vars
-    DoublyLinkedList myList;
+    DoublyLinkedList myQueue;
+    int front;
+    int back;
     int size;
-
+    int numElements;
 };
