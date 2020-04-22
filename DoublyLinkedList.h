@@ -16,6 +16,7 @@ public:
     ~DoublyLinkedList();//deconstructor
 
     //core functions
+    T peek();
     int search(T object);
     void insertFront(T object);
     void insertBack(T object);

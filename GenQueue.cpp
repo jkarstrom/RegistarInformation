@@ -6,80 +6,66 @@
 
 #include "GenQueue.h"
 
-GenQueue::GenQueue(){
-    myQueue = new DoublyLinkedList();
-    mSize = 100;
+template<class T>
+GenQueue<T>::GenQueue(){
+    myList = new DoublyLinkedList<T>();
+    size = 100;
     front = 0;
     rear = -1;
     numElements = 0;
 }
 
-GenQueue::GenQueue(int maxSize){
-    myQueue = new DoublyLinkedList();
-    mSize = maxSize;
+template<class T>
+GenQueue<T>::GenQueue(int maxSize){
+    myList = new DoublyLinkedList<T>();
+    size = maxSize;
     front = 0;
     rear = -1;
     numElements = 0;
 }
 
-GenQueue::~GenQueue(){
+template<class T>
+GenQueue<T>::~GenQueue(){
 
 }
 
-void GenQueue::insert(T object){
+template<class T>
+void GenQueue<T>::insert(T object){
     if(!isFull()){
-        myQueue->insertBack(object);
+        myList->insertBack(object);
         numElements++;
     }
 }
 
-T GenQueue::remove(T object){ //throw(QueueEmpty){
-    ListNode *node = new ListNode();
-    node->data = NULL;
+template<class T>
+T GenQueue<T>::remove(){ //throw(QueueEmpty){
+    T temp;
     if(!isEmpty()){
-        node = myQueue->removeFront();
+        temp = myList->removeFront();
         front++;
         numElements--;
     }
-    return node;
+    return temp;
 }
 
-T GenQueue::front(){ //throw(QueueEmpty){
-    return myQueue->front();
+template<class T>
+T GenQueue<T>::peek(){ //throw(QueueEmpty){
+    return myList->peek();
 }
 
-int GenQueue::getSize(){
+template<class T>
+int GenQueue<T>::getSize(){
     return numElements;
 }
 
-bool GenQueue::isEmpty(){
+template<class T>
+bool GenQueue<T>::isEmpty(){
     return (numElements == 0);
 }
 
-bool GenQueue::isFull(){
-    return (numElements == mSize);
+template<class T>
+bool GenQueue<T>::isFull(){
+    return (numElements == size);
 }
 
-int main(){
-    GenStack *myStack = new GenStack(10);
-
-    myStack->push('R');
-    myStack->push('e');
-    myStack->push('n');
-    myStack->push('e');
-
-    cout << "popping :" << myStack->pop() << endl;
-    cout << "peek-a-boo :" << myStack->peek() << endl;
-
-    myStack->push('F');
-    cout << "peek-a-boo :" << myStack->peek() << endl;
-
-    while(!myStack->isEmpty()){
-        cout << "popping :" << myStack->pop() << endl;
-    }
-
-    cout << "Is stack empty? " << myStack->isEmpty() << endl;
-
-    delete myStack;
-    return 0
-}
+template class GenQueue<char>; // debugging purposes only

@@ -4,6 +4,8 @@
 //CPSC: 350 - 2
 //Assignment 4: Registar
 
+#ifndef GENQUEUE_H
+#define GENQUEUE_H
 #include "DoublyLinkedList.h"
 
 template<class T>
@@ -16,8 +18,8 @@ public:
 
     //core functions
     void insert(T object);
-    T remove(T object); //throw(QueueEmpty);
-    T front(); //throw(QueueEmpty);
+    T remove(); //throw(QueueEmpty);
+    T peek(); //throw(QueueEmpty);
 
     //aux functions
     int getSize();
@@ -26,9 +28,11 @@ public:
 
 private:
     //vars
-    DoublyLinkedList myQueue;
+    DoublyLinkedList<T> *myList;
     int front;
-    int back;
+    int rear;
     int size;
     int numElements;
 };
+
+#endif

@@ -27,6 +27,11 @@ DoublyLinkedList<T>::~DoublyLinkedList(){
 }
 
 template<class T>
+T DoublyLinkedList<T>::peek(){
+    return front->data;
+}
+
+template<class T>
 int DoublyLinkedList<T>::search(T object){
     int pos = -1;
     ListNode<T> *curr = front;
@@ -75,6 +80,7 @@ T DoublyLinkedList<T>::removeFront(){
     if(isEmpty()){}
         // ERROR
 
+    //SEG FAULT in this if-else block, can only remove once
     if(front->next == NULL)
         back = NULL;
     else
