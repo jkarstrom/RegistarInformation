@@ -9,10 +9,12 @@
 //default constructor
 template<class T>
 DoublyLinkedList<T>::DoublyLinkedList(){
-    front = new ListNode<T>();
-    back = new ListNode<T>();
-    front->next = back;
-    back->prev = front;
+    // front = new ListNode<T>();
+    // back = new ListNode<T>();
+    // front->next = back;
+    // back->prev = front;
+    front = NULL;
+    back = NULL;
     size = 0;
 }
 
@@ -66,8 +68,8 @@ void DoublyLinkedList<T>::insertBack(T object){
     if(isEmpty())
         front = node;
     else{
-        back->prev = node;
-        node->next = front;
+        back->next = node;
+        node->prev = front;
     }
     back = node;
     size++;
