@@ -7,22 +7,29 @@
 #include "DoublyLinkedList.h"
 
 //default constructor
-DoublyLinkedList::DoublyLinkedList(){
-    front = NULL;
-    back = NULL;
-    cursor = front;
+template<class T>
+DoublyLinkedList<T>::DoublyLinkedList(){
+    front = new ListNode<T>();
+    back = new ListNode<T>();
+    front->next = back;
+    back->prev = front;
     size = 0;
 }
 
 //deconstructor
-DoublyLinkedList::~DoublyLinkedList(){
-    front = NULL;
-    cursor = NULL;
+template<class T>
+DoublyLinkedList<T>::~DoublyLinkedList(){
+    while(!isEmpty()){
+        removeFront();
+    }
+    delete front;
+    delete back;
 }
 
-T DoublyLinkedList::search(T object){
+template<class T>
+int DoublyLinkedList<T>::search(T object){
     int pos = -1;
-    ListNode *curr = front;
+    ListNode<T> *curr = front;
     while(curr != NULL){
         pos++;
         if(curr->data == object)
@@ -35,8 +42,9 @@ T DoublyLinkedList::search(T object){
     return pos;
 }
 
-void DoublyLinkedList::insertFront(T object){
-    ListNode *node = new ListNode(object);
+template<class T>
+void DoublyLinkedList<T>::insertFront(T object){
+    ListNode<T> *node = new ListNode<T>(object);
     if(isEmpty())
         back = node;
     else{
@@ -47,8 +55,9 @@ void DoublyLinkedList::insertFront(T object){
     size++;
 }
 
-void DoublyLinkedList::insertBack(T object){
-    ListNode *node = new ListNode(object);
+template<class T>
+void DoublyLinkedList<T>::insertBack(T object){
+    ListNode<T> *node = new ListNode<T>(object);
     if(isEmpty())
         front = node;
     else{
@@ -56,20 +65,21 @@ void DoublyLinkedList::insertBack(T object){
         node->next = front;
     }
     back = node;
-    advance();
     size++;
 }
 
-void DoublyLinkedList::advance(){
-    cursor = cursor->next;
-}
+template<class T>
+T DoublyLinkedList<T>::removeFront(){
+    ListNode<T> *tempNode = front;
 
-T DoublyLinkedList::removeFront(){
-    ListNode *tempNode = front;
+    if(isEmpty()){}
+        // ERROR
+
     if(front->next == NULL)
-        back == NULL;
+        back = NULL;
     else
         front->next->prev = NULL;
+
     front = front->next;
     tempNode->next = NULL;
     T temp = tempNode->data;
@@ -78,10 +88,15 @@ T DoublyLinkedList::removeFront(){
     return temp;
 }
 
-T DoublyLinkedList::removeAtPos(int pos){
+template<class T>
+T DoublyLinkedList<T>::removeAtPos(int pos){
+
+    if(pos >= size){}
+        // ERROR
+
     int idx = 0;
-    ListNode *curr = front;
-    ListNode *previous = front;
+    ListNode<T> *curr = front;
+    ListNode<T> *previous = front;
     while(idx != pos){
         previous = curr;
         curr = curr->next;
@@ -95,14 +110,19 @@ T DoublyLinkedList::removeAtPos(int pos){
     return temp;
 }
 
-T DoublyLinkedList::removeBack(){
-    ListNode *tempNode = back;
-    if(back->prev == NULL)
-        front == NULL;
+template<class T>
+T DoublyLinkedList<T>::removeBack(){
+    ListNode<T> *tempNode = back;
+
+    if(isEmpty()){}
+        // ERROR
+
+    if(back->prev == NULL){
+        front == NULL;}
     else
         back->prev->next = NULL;
+
     back = back->prev;
-    cursor = back;
     tempNode->prev = NULL;
     T temp = tempNode->data;
     size--;
@@ -110,8 +130,9 @@ T DoublyLinkedList::removeBack(){
     return temp;
 }
 
-T DoublyLinkedList::remove(T object){
-    ListNode *curr = front;
+template<class T>
+T DoublyLinkedList<T>::remove(T object){
+    ListNode<T> *curr = front;
     while(curr->data != object){
         curr = curr->next;
         if(curr == NULL)
@@ -128,7 +149,6 @@ T DoublyLinkedList::remove(T object){
     else
         curr->next->prev = curr->prev;
 
-    cursor = back;
     curr->next = NULL;
     curr->prev = NULL;
     int temp = curr->data;
@@ -138,18 +158,14 @@ T DoublyLinkedList::remove(T object){
     return temp;
 }
 
-unsigned int DoublyLinkedList::getSize(){
+template<class T>
+unsigned int DoublyLinkedList<T>::getSize(){
     return size;
 }
 
-bool DoublyLinkedList::isEmpty(){
+template<class T>
+bool DoublyLinkedList<T>::isEmpty(){
     return (size == 0);
 }
 
-T DoublyLinkedList::front(){
-    return cursor->next;
-}
-
-T DoublyLinkedList::back(){
-    return cursor->data;
-}
+template class DoublyLinkedList<char>; // debugging purposes only

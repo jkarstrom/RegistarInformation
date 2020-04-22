@@ -4,6 +4,8 @@
 //CPSC: 350 - 2
 //Assignment 4: Registar
 
+#ifndef DOUBLYLINKEDLIST_H
+#define DOUBLYLINKEDLIST_H
 #include "ListNode.h"
 
 template<class T>
@@ -18,23 +20,18 @@ public:
     void insertFront(T object);
     void insertBack(T object);
     T removeFront();
-    T removeAtPos(T object)
+    T removeAtPos(int pos);
     T removeBack();
-    T remove(int pos);
+    T remove(T object);
 
     unsigned int getSize();
     bool isEmpty();
 
-    //aux functions
-    T front();
-    T back();
-
 private:
     //vars
-    ListNode *front;
-    ListNode *back;
-    ListNode *cursor;
+    ListNode<T> *front;
+    ListNode<T> *back;
     unsigned int size;
-
-    void advance();
 };
+
+#endif

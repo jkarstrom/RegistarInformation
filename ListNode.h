@@ -4,6 +4,8 @@
 //CPSC: 350 - 2
 //Assignment 4: Registar
 
+#ifndef LISTNODE_H
+#define LISTNODE_H
 #include <iostream>
 using namespace std;
 
@@ -11,12 +13,15 @@ template<class T>
 
 class ListNode{
 public:
-    //vars
-    T data;
-    ListNode *prev;
-    ListNode *next;
 
     ListNode();//default constructor
     ListNode(T d);//overload constructor
     ~ListNode();//deconstructor
+
+    //vars
+    T data;
+    ListNode *prev;
+    ListNode *next;
 };
+
+#endif

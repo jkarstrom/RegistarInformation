@@ -1,18 +1,24 @@
 #include "ListNode.h"
 
-ListNode::ListNode(){
+template<class T>
+ListNode<T>::ListNode(){
     data = 0;
     prev = NULL;
     next = NULL;
 }
 
-ListNode::ListNode(int d){
+template<class T>
+ListNode<T>::ListNode(T d){
     data = d;
     prev = NULL;
     next = NULL;
 }
 
-ListNode::~ListNode(){
+template<class T>
+ListNode<T>::~ListNode(){
     prev = NULL;
     next = NULL;
 }
+
+
+template class ListNode<char>; // debugging purposes only
