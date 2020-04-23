@@ -18,13 +18,16 @@ void Registar::addStudent(Student newStudent){
 
 void Registar::moveStudent(){
     // remove student from queue, assign to first empty window
-    Window open = idleWindows->remove();
-    Student next = myStudents->remove();
-    open->assist(next);
-    workingWindows->insert(open);
+    if(!myStudents->isEmpty()){
+        Window open = idleWindows->remove();
+        Student next = myStudents->remove();
+        open->assist(next);
+        workingWindows->insert(open);
+    }
 }
 
-void Registar::openWindow(Window newWindow){
+void Registar::openWindow(){
+    Window *newWindow = new Window();
     idleWindows->insert(newWindow);
     moveStudent();
 }

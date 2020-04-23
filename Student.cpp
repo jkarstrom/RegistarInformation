@@ -10,14 +10,16 @@ using namespace std;
 //default constructor
 Student::Student()
 {
-
+    windowTime = 0;
+    waitTime = 0;
+    serviced = false;
 }
 
 //overload constructor
-Student::Student(int winT, int waitT)
+Student::Student(int winT)
 {
   windowTime = winT;
-  waitTime = waitT;
+  waitTime = 0;
   serviced = false;
 }
 

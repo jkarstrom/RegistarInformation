@@ -7,11 +7,13 @@
 #ifndef REGISTAR_H
 #define REGISTAR_H
 #include "GenQueue.h"
+#include "Student.h"
+#include "Window.h"
 
 class Registar{
 public:
     Registar();//default constructor
-    ~Registar();//deconstructor 
+    ~Registar();//deconstructor
 
     void addStudent(); // add student to line
     void moveStudent(); // remove student from line

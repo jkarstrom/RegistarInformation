@@ -11,7 +11,7 @@ class Student
 {
 public:
   Student();//default constructor
-  Student(int winT, int waitT);//overload constructor
+  Student(int winT);//overload constructor
   ~Student();//deconstructor
 
   //core functions
