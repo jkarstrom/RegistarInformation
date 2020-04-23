@@ -11,10 +11,11 @@
 template<class T>
 class Registar{
 public:
-    Registar();
-    ~Registar();
+    Registar();//default constructor
+    ~Registar();//deconstructor 
 
 private:
+    //vars
     GenQueue *myStudents;
 };
 
