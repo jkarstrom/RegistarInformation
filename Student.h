@@ -19,6 +19,9 @@ public:
 
   //aux functions
   int getWindowTime();
+  int getWaitTime();
+
+  bool equals(Student other);
 
 private:
   //vars

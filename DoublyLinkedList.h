@@ -7,7 +7,6 @@
 #ifndef DOUBLYLINKEDLIST_H
 #define DOUBLYLINKEDLIST_H
 #include "ListNode.h"
-
 template<class T>
 
 class DoublyLinkedList{

@@ -7,6 +7,8 @@
 #ifndef LISTNODE_H
 #define LISTNODE_H
 #include <iostream>
+#include "Student.h"
+#include "Window.h"
 using namespace std;
 
 template<class T>

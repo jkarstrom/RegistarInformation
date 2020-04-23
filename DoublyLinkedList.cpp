@@ -39,7 +39,7 @@ int DoublyLinkedList<T>::search(T object){
     ListNode<T> *curr = front;
     while(curr != NULL){
         pos++;
-        if(curr->data == object)
+        if(curr->data.equals(object))
             break;
         else
             curr = curr->next;
@@ -141,10 +141,10 @@ T DoublyLinkedList<T>::removeBack(){
 template<class T>
 T DoublyLinkedList<T>::remove(T object){
     ListNode<T> *curr = front;
-    while(curr->data != object){
+    while(!curr->data.equals(object)){
         curr = curr->next;
         if(curr == NULL)
-            return -1;
+            return curr->data;
     }
 
     if(curr == front)
@@ -159,7 +159,7 @@ T DoublyLinkedList<T>::remove(T object){
 
     curr->next = NULL;
     curr->prev = NULL;
-    int temp = curr->data;
+    T temp = curr->data;
     size--;
     delete curr;
 
@@ -176,4 +176,5 @@ bool DoublyLinkedList<T>::isEmpty(){
     return (size == 0);
 }
 
-template class DoublyLinkedList<char>; // debugging purposes only
+template class DoublyLinkedList<Student>;
+template class DoublyLinkedList<Window>;

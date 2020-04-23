@@ -68,4 +68,5 @@ bool GenQueue<T>::isFull(){
     return (numElements == size);
 }
 
-template class GenQueue<char>; // debugging purposes only
+template class GenQueue<Student>;
+template class GenQueue<Window>;

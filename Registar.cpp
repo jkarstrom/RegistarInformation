@@ -16,18 +16,28 @@ void Registar::addStudent(Student newStudent){
     myStudents->insert(newStudent);
 }
 
-void Registar::moveStudent(){
-    // remove student from queue, assign to first empty window
-    if(!myStudents->isEmpty()){
-        Window open = idleWindows->remove();
-        Student next = myStudents->remove();
-        open->assist(next);
-        workingWindows->insert(open);
-    }
+int Registar::moveStudent(){
+    Window open = idleWindows->remove();
+    Student next = myStudents->remove();
+    open.getStudent(next);
+    workingWindows->insert(open);
+    return open.getIdleTime();
+}
+
+int Registar::studentStats(){
+    Student first = myStudents->peek();
+    return first.getWaitTime();
 }
 
 void Registar::openWindow(){
     Window *newWindow = new Window();
-    idleWindows->insert(newWindow);
-    moveStudent();
+    idleWindows->insert(*newWindow);
+}
+
+bool Registar::checkWindows(){
+    return (!idleWindows->isEmpty());
+}
+
+bool Registar::checkLine(){
+    return (!myStudents->isEmpty());
 }

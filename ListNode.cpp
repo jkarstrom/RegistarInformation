@@ -2,7 +2,7 @@
 
 template<class T>
 ListNode<T>::ListNode(){
-    data = 0;
+    // data = 0;
     prev = NULL;
     next = NULL;
 }
@@ -21,4 +21,5 @@ ListNode<T>::~ListNode(){
 }
 
 
-template class ListNode<char>; // debugging purposes only
+template class ListNode<Student>;
+template class ListNode<Window>;

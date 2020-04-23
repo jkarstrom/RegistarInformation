@@ -16,13 +16,21 @@ public:
 
     void run(string fileName);
 
+    void updateStudentStats(int waitTime);
+    void updateWindowStats(int idleTime);
+
+    void printStats();
+
 private:
     int clockTick;
 
+    int totalStudents;
     float meanWait;
     int medianWait;
     int longestWait;
     int longWaits;
+
+    int totalWindows;
     float meanIdle;
     int longestIdle;
     int longIdle;

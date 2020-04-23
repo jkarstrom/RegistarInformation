@@ -15,15 +15,19 @@ public:
     Registar();//default constructor
     ~Registar();//deconstructor
 
-    void addStudent(); // add student to line
-    void moveStudent(); // remove student from line
+    void addStudent(Student newStudent); // add student to line
+    int moveStudent(); // remove student from line
+    int studentStats(); // update stats with first student in line
     void openWindow(); // open new window
+
+    bool checkWindows(); // see if there are any windows open
+    bool checkLine(); // see if there are any students in line
 
 private:
     //vars
-    GenQueue *myStudents;
-    GenQueue *idleWindows;
-    GenQueue *workingWindows;
+    GenQueue<Student> *myStudents;
+    GenQueue<Window> *idleWindows;
+    GenQueue<Window> *workingWindows;
 };
 
 #endif
