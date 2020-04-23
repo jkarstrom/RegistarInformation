@@ -8,14 +8,19 @@
 #define REGISTAR_H
 #include "GenQueue.h"
 
-template<class T>
 class Registar{
 public:
     Registar();
     ~Registar();
 
+    void addStudent(); // add student to line
+    void moveStudent(); // remove student from line
+    void openWindow(); // open new window
+
 private:
     GenQueue *myStudents;
+    GenQueue *idleWindows;
+    GenQueue *workingWindows;
 };
 
 #endif

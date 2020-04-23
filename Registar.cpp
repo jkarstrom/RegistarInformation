@@ -6,6 +6,25 @@
 
 #include "Registar.h"
 
+Registar::Registar(){
+    myStudents = new GenQueue<Student>();
+    idleWindows = new GenQueue<Window>();
+    workingWindows = new GenQueue<Window>();
+}
 
+void Registar::addStudent(Student newStudent){
+    myStudents->insert(newStudent);
+}
 
-template class Registar<char>; // debugging purposes only
+void Registar::moveStudent(){
+    // remove student from queue, assign to first empty window
+    Window open = idleWindows->remove();
+    Student next = myStudents->remove();
+    open->assist(next);
+    workingWindows->insert(open);
+}
+
+void Registar::openWindow(Window newWindow){
+    idleWindows->insert(newWindow);
+    moveStudent();
+}
