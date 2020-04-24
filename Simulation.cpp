@@ -123,10 +123,10 @@ void Simulation::updateStudentStats(int waitTime){
     meanWait = totalWait/totalStudents;
 
     // update median wait
-    allWaits[nStudent] = waitTime;
+    allWaits[nStudent++] = waitTime;
     int median = totalStudents/2;
     if(totalStudents%2 == 0){
-        medianWait = (allWaits[median] + allWaits[++median])/2;
+        medianWait = (allWaits[--median] + allWaits[median])/2;
     }
     else{
         medianWait = (allWaits[median]);
