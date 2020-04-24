@@ -28,11 +28,6 @@ void FileIO::openFile(string f)
       int i = std::stoi(line);
       data[idx] = i;
       idx++;
-      if(isDidget(data[idx] == false))
-      {
-        cout << "file contained char that is not an int";
-        inputFile.close();
-      }
     }
     inputFile.close();
   }
