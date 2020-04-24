@@ -6,6 +6,8 @@
 
 #include "FileIO.h"
 
+using namespace std;
+
 FileIO::FileIO()
 {
   //default constructor
@@ -19,14 +21,17 @@ FileIO::~FileIO()
 void FileIO::openFile(string f)
 {
   ifstream inputFile(f);
+  int temp = 0;
   if (inputFile.is_open())
   {
     while ( getline (inputFile,line) )
     {
+      int i = std::stoi(line);
+      data[temp] = i;
       cout << line << '\n';
+      temp++;
     }
     inputFile.close();
   }
-
   else cout << "Unable to open file";
 }

@@ -7,7 +7,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std;
 
 using namespace std;
 
@@ -26,4 +25,5 @@ public:
 private:
   //vars
   string line;
+  int data[100];
 };
