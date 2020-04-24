@@ -21,9 +21,14 @@ public:
   void openFile(string f);
 
   //aux functions
+  int getNext();
+
+  bool moreLines();
 
 private:
   //vars
-  string line;
+  string line = "";
+  int idx = 0;
+  int curr = 0;
   int data[100];
 };

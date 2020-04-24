@@ -21,7 +21,10 @@ public:
     void increaseTimes(); // increase wait and idle times
 
     bool checkWindows(); // see if there are any windows open
+    bool allOpen(); // see if any window still has a student
     bool checkLine(); // see if there are any students in line
+
+    int clearWindows();
 
 private:
     //vars

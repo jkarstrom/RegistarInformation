@@ -21,17 +21,23 @@ FileIO::~FileIO()
 void FileIO::openFile(string f)
 {
   ifstream inputFile(f);
-  int temp = 0;
   if (inputFile.is_open())
   {
     while ( getline (inputFile,line) )
     {
       int i = std::stoi(line);
-      data[temp] = i;
-      cout << line << '\n';
-      temp++;
+      data[idx] = i;
+      idx++;
     }
     inputFile.close();
   }
   else cout << "Unable to open file";
+}
+
+int FileIO::getNext(){
+    return data[curr++];
+}
+
+bool FileIO::moreLines(){
+    return !(curr == idx);
 }

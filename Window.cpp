@@ -23,10 +23,11 @@ bool Window::isOccupied(){
 void Window::getStudent(Student myStudent){
     student = true;
     timeLeft = myStudent.getWindowTime();
+    idleTime = 0;
 }
 
 int Window::reduceTime(){
-    --timeLeft;
+    return --timeLeft;
 }
 
 int Window::getIdleTime(){

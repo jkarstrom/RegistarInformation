@@ -16,6 +16,7 @@ public:
 
     void run(string fileName);
 
+    void update();
     void updateStudentStats(int waitTime);
     void updateWindowStats(int idleTime);
 
@@ -27,6 +28,8 @@ private:
 
     int totalStudents;
     float meanWait;
+    int allWaits[100];
+    int nStudent;
     int medianWait;
     int longestWait;
     int longWaits;

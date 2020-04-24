@@ -2,7 +2,6 @@
 
 template<class T>
 ListNode<T>::ListNode(){
-    // data = 0;
     prev = NULL;
     next = NULL;
 }

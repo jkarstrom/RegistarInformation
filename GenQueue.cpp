@@ -38,7 +38,7 @@ void GenQueue<T>::insert(T object){
 }
 
 template<class T>
-T GenQueue<T>::remove(){ //throw(QueueEmpty){
+T GenQueue<T>::remove(){
     T temp;
     if(!isEmpty()){
         temp = myList->removeFront();
@@ -49,7 +49,7 @@ T GenQueue<T>::remove(){ //throw(QueueEmpty){
 }
 
 template<class T>
-T GenQueue<T>::peek(){ //throw(QueueEmpty){
+T GenQueue<T>::peek(){
     return myList->peek();
 }
 

@@ -35,9 +35,12 @@ void Registar::openWindow(){
 }
 
 void Registar::increaseTimes(){
+
+
     GenQueue<Student> *holdingS = new GenQueue<Student>();
     // increase wait times
     while(!myStudents->isEmpty()){
+
         Student temp = Student();
         temp = myStudents->remove();
         temp.plusWaitTime();
@@ -59,22 +62,41 @@ void Registar::increaseTimes(){
     while(!holdingW->isEmpty()){
         idleWindows->insert(holdingW->remove());
     }
-    delete holdingW;
 
     // update idle windows
     while(!workingWindows->isEmpty()){
         Window temp = Window();
         temp = workingWindows->remove();
         if(temp.reduceTime() == 0){
+
             idleWindows->insert(temp);
         }
+        else
+            holdingW->insert(temp);
     }
+
+    while(!holdingW->isEmpty()){
+        workingWindows->insert(holdingW->remove());
+    }
+    delete holdingW;
 }
 
 bool Registar::checkWindows(){
     return (!idleWindows->isEmpty());
 }
 
+bool Registar::allOpen(){
+    return (workingWindows->isEmpty());
+}
+
 bool Registar::checkLine(){
     return (!myStudents->isEmpty());
+}
+
+int Registar::clearWindows(){
+    int num = 0;
+    if(!idleWindows->isEmpty()){
+        num = idleWindows->remove().getIdleTime();
+    }
+    return num;
 }

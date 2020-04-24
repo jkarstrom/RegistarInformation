@@ -9,10 +9,6 @@
 //default constructor
 template<class T>
 DoublyLinkedList<T>::DoublyLinkedList(){
-    // front = new ListNode<T>();
-    // back = new ListNode<T>();
-    // front->next = back;
-    // back->prev = front;
     front = NULL;
     back = NULL;
     size = 0;
@@ -82,7 +78,6 @@ T DoublyLinkedList<T>::removeFront(){
     if(isEmpty()){}
         // ERROR
 
-    //SEG FAULT in this if-else block, can only remove once
     if(front->next == NULL)
         back = NULL;
     else

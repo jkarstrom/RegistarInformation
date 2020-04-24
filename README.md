@@ -5,6 +5,11 @@ ID: 2318286, 2320560
 karstrom@chapman.edu, jenguyen@chapman.edu
 CPSC: 350 - 2 Assignment 4: Registrar
 
-References:
+Notes:
+Did not use a pure virtual list class
 
-No known errors:
+References:
+in-class examples
+
+Known errors:
+n/a
