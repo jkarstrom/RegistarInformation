@@ -22,16 +22,24 @@ bool Window::isOccupied(){
 
 void Window::getStudent(Student myStudent){
     student = true;
-    timeLeft = myStudent.getWindowTime;
+    timeLeft = myStudent.getWindowTime();
+}
+
+int Window::reduceTime(){
+    --timeLeft;
 }
 
 int Window::getIdleTime(){
     return idleTime;
 }
 
+void Window::plusIdleTime(){
+    idleTime++;
+}
+
 bool Window::equals(Window other){
     bool compare = false;
-    if(timeLeft == other->timeLeft){
+    if(timeLeft == other.timeLeft){
         compare = true;
     }
     return compare;

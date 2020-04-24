@@ -23,6 +23,7 @@ public:
 
 private:
     int clockTick;
+    int studentIn;
 
     int totalStudents;
     float meanWait;

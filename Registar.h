@@ -7,8 +7,6 @@
 #ifndef REGISTAR_H
 #define REGISTAR_H
 #include "GenQueue.h"
-#include "Student.h"
-#include "Window.h"
 
 class Registar{
 public:
@@ -19,6 +17,8 @@ public:
     int moveStudent(); // remove student from line
     int studentStats(); // update stats with first student in line
     void openWindow(); // open new window
+
+    void increaseTimes(); // increase wait and idle times
 
     bool checkWindows(); // see if there are any windows open
     bool checkLine(); // see if there are any students in line

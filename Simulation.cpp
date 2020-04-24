@@ -8,6 +8,7 @@
 
 Simulation::Simulation(){
     clockTick = 0;
+    studentIn = -1;
 
     totalStudents = 0;
     meanWait = 0;
@@ -44,10 +45,13 @@ void Simulation::run(string fileName){
     // while file is still open
     while(true){
         // get time for student inflow
-        int studentIn;
+        studentIn;
         if(studentIn < clockTick){
             cout << "Students can only come at a present or future time." << endl;
             exit(1);
+        }
+        else if(studentIn > clockTick){
+            break;
         }
 
         // get number of students here
@@ -68,7 +72,7 @@ void Simulation::run(string fileName){
 
         // look for open windows and move students in line
         while(myRegistar->checkWindows()){
-            if(myRegistar->inLine()){
+            if(myRegistar->checkLine()){
                 int firstWait = myRegistar->studentStats();
                 updateStudentStats(firstWait);
                 int newIdle = myRegistar->moveStudent();
@@ -79,7 +83,7 @@ void Simulation::run(string fileName){
         }
 
         // increase wait and idle times of other students and other windows
-
+        myRegistar->increaseTimes();
         clockTick++;
     }
 

@@ -20,6 +20,7 @@ public:
   //aux functions
   int getWindowTime();
   int getWaitTime();
+  void plusWaitTime();
 
   bool equals(Student other);
 

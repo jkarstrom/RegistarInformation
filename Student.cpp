@@ -43,9 +43,13 @@ int Student::getWaitTime(){
     return waitTime;
 }
 
+void Student::plusWaitTime(){
+    waitTime++;
+}
+
 bool Student::equals(Student other){
     bool compare = false;
-    if(windowTime == other->windowTime){
+    if(windowTime == other.windowTime){
         compare = true;
     }
     return compare;

@@ -7,6 +7,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 #include <iostream>
+#include "Student.h"
 using namespace std;
 
 class Window{
@@ -17,7 +18,9 @@ public:
 
     bool isOccupied();
     void getStudent(Student myStudent);
+    int reduceTime();
     int getIdleTime();
+    void plusIdleTime();
 
     bool equals(Window other);
 
