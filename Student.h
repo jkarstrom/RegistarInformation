@@ -21,7 +21,6 @@ public:
   int getWindowTime();
   int getWaitTime();
   void plusWaitTime();
-
   bool equals(Student other);
 
 private:

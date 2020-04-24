@@ -6,12 +6,14 @@
 
 #include "Window.h"
 
+//default constructor
 Window::Window(){
     student = false;
     timeLeft = 0;
     idleTime = 0;
 }
 
+//deconstructor
 Window::~Window(){
 
 }

@@ -24,6 +24,7 @@ public:
     T removeBack();
     T remove(T object);
 
+    //aux functions
     unsigned int getSize();
     bool isEmpty();
 

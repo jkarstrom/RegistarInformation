@@ -6,6 +6,7 @@
 
 #include "Registar.h"
 
+//default constructor
 Registar::Registar(){
     myStudents = new GenQueue<Student>();
     idleWindows = new GenQueue<Window>();

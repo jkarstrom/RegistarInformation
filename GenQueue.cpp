@@ -6,6 +6,7 @@
 
 #include "GenQueue.h"
 
+//default constructor
 template<class T>
 GenQueue<T>::GenQueue(){
     myList = new DoublyLinkedList<T>();
@@ -15,6 +16,7 @@ GenQueue<T>::GenQueue(){
     numElements = 0;
 }
 
+//overload constructor
 template<class T>
 GenQueue<T>::GenQueue(int maxSize){
     myList = new DoublyLinkedList<T>();
@@ -24,6 +26,7 @@ GenQueue<T>::GenQueue(int maxSize){
     numElements = 0;
 }
 
+//deconstructor
 template<class T>
 GenQueue<T>::~GenQueue(){
 

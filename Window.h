@@ -13,18 +13,21 @@ using namespace std;
 class Window{
 public:
 
-    Window();
-    ~Window();
+    Window();//default constructor
+    ~Window();//deconstructor
 
+    //core functions
     bool isOccupied();
     void getStudent(Student myStudent);
     int reduceTime();
     int getIdleTime();
     void plusIdleTime();
 
+    //aux functions
     bool equals(Window other);
 
 private:
+    //vars
     bool student;
     int timeLeft;
     int idleTime;

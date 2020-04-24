@@ -22,7 +22,6 @@ public:
 
   //aux functions
   int getNext();
-
   bool moreLines();
 
 private:

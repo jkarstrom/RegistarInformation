@@ -6,6 +6,7 @@
 
 #include "Simulation.h"
 
+//default constructor
 Simulation::Simulation(){
     clockTick = 0;
     studentIn = -1;
@@ -24,6 +25,7 @@ Simulation::Simulation(){
     myRegistar = new Registar();
 }
 
+//deconstructor
 Simulation::~Simulation(){
 
 }
